@@ -3,7 +3,7 @@ import { Section } from '../components/Section';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { FaEnvelope, FaPhone, FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
-import ContactVideo from '../assets/contact.mp4';
+import ContactGif from '../assets/contact.gif';
 
 const ContactSection = styled(Section)`
   position: relative;
@@ -12,11 +12,11 @@ const ContactSection = styled(Section)`
   overflow: hidden;
 `;
 
-const VideoBackground = styled.video`
+const GifBackground = styled.img`
   position: absolute;
   top: 0;
-  left: -10%; /* Move the video slightly to the left */
-  width: 120%; /* Make the video slightly smaller */
+  left: -10%; /* Move the GIF slightly to the left */
+  width: 120%; /* Make the GIF slightly larger */
   height: 100%;
   object-fit: cover;
   z-index: -1;
@@ -100,11 +100,15 @@ const DetailItem = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
+
+  span {
+    margin-left: 0.5rem;
+  }
 `;
 
 const DetailIcon = styled.div`
-  margin-right: 0.5rem;
   font-size: 1.5rem;
+  color: #333;
 `;
 
 const SocialIcons = styled.div`
@@ -120,7 +124,7 @@ const SocialIconLink = styled.a`
   transition: color 0.3s;
 
   &:hover {
-    color: #00aced;
+    color: #555;
   }
 `;
 
@@ -131,22 +135,17 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (name && email && message) {
-      alert('Message sent successfully!');
-      setName('');
-      setEmail('');
-      setMessage('');
-    } else {
-      alert('Please fill in all fields.');
-    }
+    // Handle form submission logic
+    console.log('Form submitted:', { name, email, message });
+    // Reset form fields
+    setName('');
+    setEmail('');
+    setMessage('');
   };
 
   return (
     <ContactSection initial="hidden" animate="visible" transition={{ duration: 1 }}>
-      <VideoBackground autoPlay loop muted>
-        <source src={ContactVideo} type="video/mp4" />
-        Your browser does not support the video tag.
-      </VideoBackground>
+      <GifBackground src={ContactGif} alt="Contact background" />
       <ContactContainer>
         <Title>Contact Me</Title>
         <Form onSubmit={handleSubmit}>

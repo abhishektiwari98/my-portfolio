@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Section } from '../components/Section';
-import ResumeVideo from '../assets/resume.mp4';
+import ResumeGif from '../assets/resume.gif';
 import ResumeImage from '../assets/Resume_Abhishek_Tiwari.png';
 
 // Keyframes for moving icons animation
@@ -19,7 +19,7 @@ const ResumeSection = styled(Section)`
   height: 100vh; /* Ensure it takes full viewport height */
 `;
 
-const VideoBackground = styled.video`
+const GifBackground = styled.img`
   position: absolute;
   top: 0;
   left: 0;
@@ -112,18 +112,15 @@ const Resume = () => {
 
   // const handleImageClick = () => {
   //   setShowModal(true);
-  // };
+  // }
 
   const handleCloseModal = () => {
     setShowModal(false);
-  };
+  }
 
   return (
     <ResumeSection>
-      <VideoBackground autoPlay loop muted>
-        <source src={ResumeVideo} type="video/mp4" />
-        Your browser does not support the video tag.
-      </VideoBackground>
+      <GifBackground src={ResumeGif} alt="Resume background" />
       {icons}
       <Content>
         <Title>My Resume</Title>
@@ -140,6 +137,6 @@ const Resume = () => {
       </Content>
     </ResumeSection>
   );
-};
+}
 
 export default Resume;
