@@ -1,0 +1,194 @@
+/* General App Styling */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.app {
+  overflow-x: hidden;
+}
+
+/* Navbar Styling */
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px 40px;
+  border-radius: 25px;
+  z-index: 1000;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 20px;
+}
+
+.navbar li {
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.navbar li:hover {
+  color: #929292;
+}
+
+/* Dark Mode */
+.light .navbar {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.dark .navbar {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.dark .navbar li {
+  color: #f8e4ba;
+}
+
+.dark .navbar li:hover {
+  color: #ffcc00;
+}
+
+/* Sections */
+.section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Alternate Background Colors for Light Mode */
+.light .section:nth-child(odd) {
+  background-color: #f8e4ba;
+  /* Light yellow (Home, Projects, etc.) */
+  color: #333;
+}
+
+.light .section:nth-child(even) {
+  background-color: #fffff7;
+  /* Beige (About, Skills, etc.) */
+  color: #333;
+}
+
+/* Dark Mode */
+.dark .section:nth-child(odd) {
+  background-color: #333;
+  /* Dark gray */
+  color: #f8e4ba;
+}
+
+.dark .section:nth-child(even) {
+  background-color: #444;
+  /* Slightly lighter gray */
+  color: #f8e4ba;
+}
+
+
+
+
+/* Theme Switch Styling */
+.theme-switch {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
+  /* Ensure it stays above everything else */
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2px 2px;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dark .theme-switch {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+/* Home Page Styling */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Arial", sans-serif;
+  /* Or use "Roboto", "Open Sans", or any web font you prefer */
+}
+
+.home-icon {
+  font-size: 100px;
+  color: #333;
+  /* Adjust color based on theme */
+  margin-bottom: 20px;
+}
+
+.home-name {
+  font-size: 48px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #333;
+  /* Adjust based on theme */
+}
+
+.home-title {
+  font-size: 24px;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #555;
+  /* Adjust for light or dark mode */
+}
+
+/* Dark Mode */
+.dark .section {
+  background-color: #333;
+  /* Dark background */
+  color: #f8e4ba;
+  /* Light text color */
+}
+
+.dark .home-icon {
+  color: #f8e4ba;
+  /* Light color for the icon in dark mode */
+}
+
+.dark .home-name {
+  color: #f8e4ba;
+  /* Light color for the name */
+}
+
+.dark .home-title {
+  color: #f8e4ba;
+  /* Light color for the title */
+}
+
+
+/* Typing effect */
+.home-title {
+  font-size: 24px;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #555;
+  /* Adjust based on the theme */
+  margin-top: 10px;
+}
+
+.dark .home-title {
+  color: #f8e4ba;
+  /* Light color for dark mode */
+}
