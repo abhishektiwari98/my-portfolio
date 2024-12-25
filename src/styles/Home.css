@@ -49,3 +49,45 @@
 .dark .home-title {
     color: #f8e4ba;
 }
+
+
+
+.social-icons {
+    margin-top: 20px;
+    /* Space below the theme switch */
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /* Space between icons */
+}
+
+.icon {
+    font-size: 35px;
+    /* Size of the icons */
+    color: #333;
+    transition: color 0.3s;
+}
+
+.icon:hover {
+    color: #0077b5;
+    /* Hover color for both icons */
+}
+
+.github:hover {
+    color: #4b4b4b;
+    /* GitHub specific hover color */
+}
+
+.linkedin:hover {
+    color: #0077b5;
+    /* LinkedIn specific hover color */
+}
+
+.dark .icon {
+    color: #f8e4ba;
+}
+
+.dark .icon:hover {
+    color: #ffcc00;
+    /* Hover color in dark mode */
+}
