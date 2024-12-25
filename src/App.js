@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Switch from "react-switch";
 import "./App.css";
 import Home from "./pages/Home";
-import Navbar from "./pages/Navbar"; // Import the Navbar component
+import Navbar from "./pages/Navbar";
+import About from "./pages/About";
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -23,25 +23,25 @@ const App = () => {
       {/* Navbar */}
       <Navbar scrollToSection={scrollToSection} />
 
-      {/* Theme Switch */}
-      <div className="theme-switch">
-        <Switch
-          checked={isDarkMode}
-          onChange={handleToggle}
-          checkedIcon={<span>🌜</span>}
-          uncheckedIcon={<span>🌞</span>}
-          onColor="#333"
-          offColor="#ddd"
-        />
+      {/* Resume Button */}
+      <div className="controls">
+        <a
+          href="/resume.pdf"
+          download
+          className="resume-button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Resume
+        </a>
       </div>
 
       {/* Sections */}
       <div id="home" className="section">
-        <Home />
+        <Home isDarkMode={isDarkMode} handleToggle={handleToggle} />
       </div>
       <div id="about" className="section">
-        <h1>About</h1>
-        <p>This is the About section. Learn more about me here.</p>
+        <About />
       </div>
       <div id="projects" className="section">
         <h1>Projects</h1>
@@ -54,10 +54,6 @@ const App = () => {
       <div id="experience" className="section">
         <h1>Experience</h1>
         <p>Learn about my professional experience here.</p>
-      </div>
-      <div id="resume" className="section">
-        <h1>Resume</h1>
-        <p>View or download my resume here.</p>
       </div>
       <div id="contact" className="section">
         <h1>Contact</h1>

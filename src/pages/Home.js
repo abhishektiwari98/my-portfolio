@@ -1,8 +1,10 @@
 import React from "react";
 import { FaLaptopCode } from "react-icons/fa";
 import Typewriter from "typewriter-effect";
+import Switch from "react-switch"; // Import Switch for theme toggle
+import "../styles/Home.css";
 
-const Home = () => {
+const Home = ({ isDarkMode, handleToggle }) => {
     return (
         <div className="section home-container">
             <FaLaptopCode className="home-icon" />
@@ -10,13 +12,49 @@ const Home = () => {
             <div className="home-title">
                 <Typewriter
                     options={{
-                        strings: ["Software Developer", "Full Stack Developer", "Java Developer"],
+                        strings: ["Software Developer", "Full-Stack Developer", "Java Developer"],
                         autoStart: true,
                         loop: true,
-                        delay: 75, // Typing speed
-                        deleteSpeed: 50, // Deleting speed
+                        delay: 50,
+                        deleteSpeed: 30,
                     }}
                 />
+            </div>
+            {/* Theme Switch Button */}
+            <div className="theme-switch-container">
+                <Switch
+                    checked={isDarkMode}
+                    onChange={handleToggle}
+                    checkedIcon={
+                        <span
+                            style={{
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                height: "100%",
+                                fontSize: "16px",
+                            }}
+                        >
+                            🌜
+                        </span>
+                    }
+                    uncheckedIcon={
+                        <span
+                            style={{
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                height: "100%",
+                                fontSize: "16px",
+                            }}
+                        >
+                            🌞
+                        </span>
+                    }
+                    onColor="#333"
+                    offColor="#ddd"
+                />
+
             </div>
         </div>
     );

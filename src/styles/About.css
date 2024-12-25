@@ -1,0 +1,164 @@
+.about-container {
+    max-width: 1200px;
+    /* Limit the width for readability */
+    margin: 50px auto;
+    /* Add spacing above and below the section */
+    padding: 50px 20px;
+    /* Add internal padding */
+    text-align: center;
+}
+
+/* Title Styling */
+.about-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    color: #333;
+    /* Default for light mode */
+}
+
+.dark .about-title {
+    color: #f8e4ba;
+    /* Light text for dark mode */
+}
+
+/* Flex Layout for Content */
+.about-content {
+    display: flex;
+    justify-content: space-between;
+    /* Spread the content */
+    align-items: center;
+    /* Center vertically */
+    gap: 30vh;
+    /* Space between sections */
+    flex-wrap: wrap;
+    /* Stack content on smaller screens */
+}
+
+/* Photo Card Section */
+.about-photo-card {
+    flex: 0;
+    /* Allow flexible width */
+    max-width: 400px;
+    /* Restrict max width */
+    text-align: center;
+    background-color: white;
+    border-radius: 0px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.dark .about-photo-card {
+    background-color: #444;
+    /* Dark mode background */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.about-photo {
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.tech-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.tech-icon {
+    width: 40px;
+    height: 40px;
+}
+
+/* Browser Mockup Section */
+.browser-mockup {
+    flex: 2;
+    /* Take more space than the photo card */
+    max-width: 700px;
+    /* Restrict max width */
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.dark .browser-mockup {
+    background-color: #444;
+    /* Dark mode background */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.browser-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #e5e5e5;
+    border-bottom: 1px solid #ddd;
+}
+
+.dark .browser-header {
+    background-color: #555;
+    border-bottom: 1px solid #666;
+}
+
+.browser-dot {
+    width: 12px;
+    height: 12px;
+    margin-right: 8px;
+    border-radius: 50%;
+}
+
+.browser-dot.red {
+    background-color: #ff5f57;
+}
+
+.browser-dot.yellow {
+    background-color: #ffbd2e;
+}
+
+.browser-dot.green {
+    background-color: #28c940;
+}
+
+.browser-content {
+    padding: 20px;
+    text-align: left;
+    color: #333;
+    /* Default text color */
+}
+
+.dark .browser-content {
+    color: #f8e4ba;
+    /* Light text for dark mode */
+}
+
+.browser-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.browser-content p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        /* Stack content vertically */
+        align-items: center;
+    }
+
+    .about-photo-card,
+    .browser-mockup {
+        max-width: 100%;
+        /* Allow full width on smaller screens */
+    }
+}

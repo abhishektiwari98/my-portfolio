@@ -9,7 +9,6 @@ const Navbar = ({ scrollToSection }) => {
                 <li onClick={() => scrollToSection("projects")}>Projects</li>
                 <li onClick={() => scrollToSection("skills")}>Skills</li>
                 <li onClick={() => scrollToSection("experience")}>Experience</li>
-                <li onClick={() => scrollToSection("resume")}>Resume</li>
                 <li onClick={() => scrollToSection("contact")}>Contact</li>
             </ul>
         </nav>

@@ -99,96 +99,53 @@ body {
   color: #f8e4ba;
 }
 
+/* Theme Switch Container */
+.theme-switch-container {
+  padding: 3px 3px;
+  /* Padding restored */
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  /* Light mode background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
+.dark .theme-switch-container {
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Dark mode background */
+}
 
-
-/* Theme Switch Styling */
-.theme-switch {
+/* Button controls (Resume + Theme) */
+.controls {
   position: fixed;
   top: 20px;
   right: 20px;
   z-index: 1001;
-  /* Ensure it stays above everything else */
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 2px 2px;
-  border-radius: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.dark .theme-switch {
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-
-/* Home Page Styling */
-.home-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: center;
-  font-family: "Arial", sans-serif;
-  /* Or use "Roboto", "Open Sans", or any web font you prefer */
+  gap: 15px;
 }
 
-.home-icon {
-  font-size: 100px;
-  color: #333;
-  /* Adjust color based on theme */
-  margin-bottom: 20px;
-}
-
-.home-name {
-  font-size: 48px;
+.resume-button {
+  display: inline-block;
+  padding: 8px 15px;
+  font-size: 14px;
   font-weight: bold;
-  margin: 10px 0;
+  color: #fff;
+  background-color: #000000;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: background-color 0.3s;
+}
+
+.resume-button:hover {
+  background-color: #005bb5;
+}
+
+.dark .resume-button {
+  background-color: #ffcc00;
   color: #333;
-  /* Adjust based on theme */
 }
 
-.home-title {
-  font-size: 24px;
-  font-weight: 300;
-  text-transform: uppercase;
-  color: #555;
-  /* Adjust for light or dark mode */
-}
-
-/* Dark Mode */
-.dark .section {
-  background-color: #333;
-  /* Dark background */
-  color: #f8e4ba;
-  /* Light text color */
-}
-
-.dark .home-icon {
-  color: #f8e4ba;
-  /* Light color for the icon in dark mode */
-}
-
-.dark .home-name {
-  color: #f8e4ba;
-  /* Light color for the name */
-}
-
-.dark .home-title {
-  color: #f8e4ba;
-  /* Light color for the title */
-}
-
-
-/* Typing effect */
-.home-title {
-  font-size: 24px;
-  font-weight: 300;
-  text-transform: uppercase;
-  color: #555;
-  /* Adjust based on the theme */
-  margin-top: 10px;
-}
-
-.dark .home-title {
-  color: #f8e4ba;
-  /* Light color for dark mode */
+.dark .resume-button:hover {
+  background-color: #f8b700;
 }

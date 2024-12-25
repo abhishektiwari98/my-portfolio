@@ -1,0 +1,51 @@
+.home-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: inherit;
+}
+
+.home-icon {
+    font-size: 100px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.home-name {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #333;
+}
+
+.home-title {
+    font-size: 24px;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Theme Switch Styling */
+.theme-switch-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dark .home-icon {
+    color: #f8e4ba;
+}
+
+.dark .home-name {
+    color: #f8e4ba;
+}
+
+.dark .home-title {
+    color: #f8e4ba;
+}
