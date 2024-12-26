@@ -166,7 +166,7 @@ body {
     /* Ensure it's hidden by default */
     flex-direction: column;
     width: auto;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(248, 228, 186, 1);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     padding: 10px 0;
@@ -186,6 +186,14 @@ body {
     padding: 10px 20px;
     width: 100%;
     text-align: left;
+  }
+
+  .dark .navbar li {
+    color: #000000;
+  }
+
+  .dark .navbar {
+    background-color: rgba(248, 228, 186, 1);
   }
 
   .menu-icon {

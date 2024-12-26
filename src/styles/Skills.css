@@ -18,7 +18,7 @@
 .skill-card {
     width: 120px;
     height: 100px;
-    background-color: #000000;
+    background-color: #2a2a2a;
     color: #f8e4ba;
     display: flex;
     flex-direction: column;

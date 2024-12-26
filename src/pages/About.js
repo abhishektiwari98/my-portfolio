@@ -41,7 +41,7 @@ const About = () => {
                     <div className="browser-content">
                         <h2>Hi :)</h2>
                         <p>
-                            👋 I'm Abhishek Tiwari, a passionate Full-Stack Developer 💻 skilled in React ⚛️,
+                            👋 I'm Abhishek Tiwari, a Full-Stack Developer 💻 skilled in React ⚛️,
                             Node.js 🌐, and Spring Boot 🚀. I have expertise in cloud technologies ☁️ (AWS, GCP)
                             and databases like PostgreSQL 🐘 and MongoDB 🍃. I love creating scalable
                             solutions 📈 and building intuitive applications ✨ to solve complex problems.
