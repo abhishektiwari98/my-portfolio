@@ -6,6 +6,8 @@ import About from "./pages/About";
 import Skills from "./pages/Skills";
 import Projects from "./pages/Projects"; // Import Projects component
 import Experience from "./pages/Experience"; // Import Experience component
+import Contact from "./pages/Contact"; // Import Contact component
+import Footer from "./pages/Footer"; // Import Footer component
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -39,7 +41,6 @@ const App = () => {
         </a>
       </div>
 
-
       {/* Sections */}
       <div id="home" className="section">
         <Home isDarkMode={isDarkMode} handleToggle={handleToggle} />
@@ -57,9 +58,10 @@ const App = () => {
         <Experience /> {/* Render the Experience component */}
       </div>
       <div id="contact" className="section">
-        <h1>Contact</h1>
-        <p>Get in touch with me here.</p>
+        <Contact /> {/* Render the Contact component */}
       </div>
+      {/* Footer */}
+      <Footer /> {/* Render the Footer component */}
     </div>
   );
 };
