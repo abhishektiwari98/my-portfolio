@@ -91,7 +91,7 @@ const Experience = () => {
                 <VerticalTimelineElement
                     iconStyle={{ background: "#f4b400", color: "#000" }}
                     icon={<FaHourglassHalf />}
-                    contentStyle={{ display: "none" }} // Hides the empty box
+                    contentStyle={{ display: "none" }}
                 />
             </VerticalTimeline>
         </div>
