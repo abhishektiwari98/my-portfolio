@@ -1,6 +1,8 @@
 import React from "react";
 import "../styles/About.css";
-import profileImage from "../assets/profile.jpg"; // Replace with your actual image path
+import profileImage from "../assets/profile.jpg";
+import JavaLogo from "../assets/java-logo.png";
+import MongoLogo from "../assets/mongo-db.png";
 
 const About = () => {
     return (
@@ -12,8 +14,8 @@ const About = () => {
                     <img src={profileImage} alt="Profile" className="about-photo" />
                     <div className="tech-icons">
                         <img
-                            src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg"
-                            alt="Angular"
+                            src={JavaLogo}
+                            alt="Java"
                             className="tech-icon"
                         />
                         <img
@@ -22,8 +24,8 @@ const About = () => {
                             className="tech-icon"
                         />
                         <img
-                            src="https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg"
-                            alt="Vue"
+                            src={MongoLogo}
+                            alt="MongoDB"
                             className="tech-icon"
                         />
                     </div>
@@ -39,9 +41,10 @@ const About = () => {
                     <div className="browser-content">
                         <h2>Hi :)</h2>
                         <p>
-                            👋 I'm Abhishek Tiwari. A passionate developer working with modern frameworks
-                            like Angular, React, and Vue. I create awesome projects and enjoy solving complex
-                            problems with elegant solutions.
+                            👋 I'm Abhishek Tiwari, a passionate Full-Stack Developer 💻 skilled in React ⚛️,
+                            Node.js 🌐, and Spring Boot 🚀. I have expertise in cloud technologies ☁️ (AWS, GCP)
+                            and databases like PostgreSQL 🐘 and MongoDB 🍃. I love creating scalable
+                            solutions 📈 and building intuitive applications ✨ to solve complex problems.
                         </p>
                     </div>
                 </div>

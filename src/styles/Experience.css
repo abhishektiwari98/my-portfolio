@@ -81,3 +81,17 @@
     color: #f8e4ba;
     /* Theme-consistent text color */
 }
+
+
+/* Custom CSS for fixing date spacing */
+.vertical-timeline-element-date {
+    margin-top: 0;
+    margin-bottom: 10px;
+    margin-left: -100px;
+}
+
+@media screen and (max-width: 768px) {
+    .vertical-timeline-element-date {
+        margin-left: 0;
+    }
+}

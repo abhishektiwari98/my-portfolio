@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/Experience.css";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import { FaAngular, FaGoogle, FaHourglassHalf } from "react-icons/fa";
+import { FaGoogle, FaHourglassHalf } from "react-icons/fa";
 
 const experienceData = [
     {
