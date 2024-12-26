@@ -25,12 +25,16 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    align-items: center;
+    /* Ensures all elements, including the button, are centered */
 }
 
 .contact-form div {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
+    /* Inputs and labels take full width */
 }
 
 .contact-form label {
@@ -44,7 +48,7 @@
 
 .contact-form input,
 .contact-form textarea {
-    width: 100%;
+    width: 90%;
     padding: 12px 15px;
     font-size: 16px;
     border: 1px solid #ddd;
@@ -69,21 +73,67 @@
 }
 
 .contact-form button {
-    padding: 14px 20px;
+    padding: 10px 20px;
+    /* Adjust padding to make the button compact */
     font-size: 16px;
     font-weight: 600;
     color: #fff;
-    background-color: #007aff;
-    /* Apple's blue button */
+    background-color: #000000;
     border: none;
     border-radius: 12px;
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s;
+    width: fit-content;
+    /* Shrinks the button to fit the text */
+    align-self: center;
+    /* Ensures the button is centered */
 }
 
 .contact-form button:hover {
     background-color: #0056b3;
     box-shadow: 0 4px 10px rgba(0, 122, 255, 0.3);
+}
+
+/* Dark Mode */
+.dark .contact-container {
+    background-color: #333;
+    color: #f8e4ba;
+}
+
+.dark .contact-title {
+    color: #f8e4ba;
+}
+
+.dark .contact-description {
+    color: #ddd;
+}
+
+.dark .contact-form input,
+.dark .contact-form textarea {
+    background-color: #444;
+    border: 1px solid #666;
+    color: #f8e4ba;
+}
+
+.dark .contact-form input::placeholder,
+.dark .contact-form textarea::placeholder {
+    color: #bbb;
+}
+
+.dark .contact-form input:focus,
+.dark .contact-form textarea:focus {
+    border-color: #ffcc00;
+    box-shadow: 0 0 8px rgba(255, 204, 0, 0.4);
+}
+
+.dark .contact-form button {
+    background-color: #ffcc00;
+    color: #333;
+}
+
+.dark .contact-form button:hover {
+    background-color: #f8b700;
+    box-shadow: 0 4px 10px rgba(255, 204, 0, 0.4);
 }
 
 /* Popup Notification */
@@ -116,6 +166,11 @@
     color: #333;
 }
 
+.dark .popup-content {
+    background-color: #444;
+    color: #f8e4ba;
+}
+
 .close-button {
     padding: 10px 20px;
     background-color: #007aff;
@@ -131,6 +186,16 @@
 .close-button:hover {
     background-color: #0056b3;
     box-shadow: 0 4px 10px rgba(0, 122, 255, 0.3);
+}
+
+.dark .close-button {
+    background-color: #ffcc00;
+    color: #333;
+}
+
+.dark .close-button:hover {
+    background-color: #f8b700;
+    box-shadow: 0 4px 10px rgba(255, 204, 0, 0.3);
 }
 
 @keyframes fadeIn {

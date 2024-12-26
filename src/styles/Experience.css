@@ -53,7 +53,31 @@
     /* Light text for tags */
 }
 
+.dark .vertical-timeline-element-title {
+    color: #ffffff;
+    /* Fully white for titles in dark mode */
+}
+
 .dark .vertical-timeline-element-subtitle {
-    color: #ddd;
-    /* Light text for subtitles in dark mode */
+    color: #cccccc;
+    /* Lighter gray for subtitles in dark mode */
+}
+
+.dark .vertical-timeline-element-content {
+    background-color: #444;
+    /* Dark background for content cards */
+    border: 1px solid #555;
+    /* Subtle border for better visibility */
+    box-shadow: 0px 4px 10px rgba(255, 204, 0, 0.3);
+    /* Golden shadow for better theme alignment */
+    border-radius: 8px;
+    color: #f8e4ba;
+    /* Text color consistent with the theme */
+}
+
+.dark .skills-tags .tag {
+    background-color: #555;
+    /* Darker gray for tags */
+    color: #f8e4ba;
+    /* Theme-consistent text color */
 }

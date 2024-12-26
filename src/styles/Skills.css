@@ -2,7 +2,7 @@
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 30px;
-    color: var(--text-color, #000000);
+    color: var(--text-color, #f8e4ba);
     /* Light text */
 }
 
@@ -59,8 +59,12 @@
 
 .dark .skill-card {
     background-color: #555;
+    box-shadow: 0 4px 6px rgba(255, 204, 0, 0.6);
+    /* Golden shadow */
 }
 
 .dark .skill-card:hover {
     background-color: #666;
+    box-shadow: 0 6px 12px rgba(255, 204, 0, 0.8);
+    /* Brighter golden shadow on hover */
 }

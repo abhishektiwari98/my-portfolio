@@ -5,7 +5,6 @@ import "react-vertical-timeline-component/style.min.css";
 import { FaAngular, FaGoogle, FaHourglassHalf } from "react-icons/fa";
 
 const experienceData = [
-
     {
         title: "Graduate Research Assistant",
         company: "University of Texas at San Antonio",
@@ -30,7 +29,6 @@ const experienceData = [
         iconBg: "#ff8316",
         color: "#000",
     },
-
     {
         title: "Senior Software Engineer",
         company: "Ntier Infotech",
@@ -93,6 +91,7 @@ const Experience = () => {
                 <VerticalTimelineElement
                     iconStyle={{ background: "#f4b400", color: "#000" }}
                     icon={<FaHourglassHalf />}
+                    contentStyle={{ display: "none" }} // Hides the empty box
                 />
             </VerticalTimeline>
         </div>
