@@ -63,10 +63,8 @@ body {
 }
 
 /* Sections */
-/* General section styling */
 .section {
   min-height: auto;
-  /* Let sections grow naturally based on content */
   padding: 40px 20px;
   display: flex;
   flex-direction: column;
@@ -75,57 +73,47 @@ body {
   text-align: center;
 }
 
-/* Specific styling for Home page */
+/* Home page (Full height) */
 #home.section {
   height: 100vh;
-  /* Full-screen height for Home page */
   padding: 0;
-  /* Reset padding for Home */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-
 /* Alternate Background Colors for Light Mode */
 .light .section:nth-child(odd) {
   background-color: #f8e4ba;
-  /* Light yellow (Home, Projects, etc.) */
   color: #333;
 }
 
 .light .section:nth-child(even) {
   background-color: #fffff7;
-  /* Beige (About, Skills, etc.) */
   color: #333;
 }
 
 /* Dark Mode */
 .dark .section:nth-child(odd) {
   background-color: #333;
-  /* Dark gray */
   color: #f8e4ba;
 }
 
 .dark .section:nth-child(even) {
   background-color: #444;
-  /* Slightly lighter gray */
   color: #f8e4ba;
 }
 
 /* Theme Switch Container */
 .theme-switch-container {
-  padding: 3px 3px;
-  /* Padding restored */
+  padding: 3px;
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.8);
-  /* Light mode background */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .dark .theme-switch-container {
   background-color: rgba(0, 0, 0, 0.7);
-  /* Dark mode background */
 }
 
 /* Button controls (Resume + Theme) */
@@ -145,7 +133,7 @@ body {
   font-size: 14px;
   font-weight: bold;
   color: #fff;
-  background-color: #000000;
+  background-color: #000;
   text-decoration: none;
   border-radius: 50px;
   transition: background-color 0.3s;
@@ -162,4 +150,100 @@ body {
 
 .dark .resume-button:hover {
   background-color: #f8b700;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 18px 20px;
+  }
+
+  .navbar ul {
+    display: none;
+    /* Ensure it's hidden by default */
+    flex-direction: column;
+    width: auto;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 10px 0;
+    position: absolute;
+    top: 40px;
+    left: -25px;
+    z-index: 999;
+    animation: slideIn 0.3s ease-in-out;
+  }
+
+  .navbar ul.show {
+    display: flex;
+    /* Only show when the class 'show' is applied */
+  }
+
+  .navbar li {
+    padding: 10px 20px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .menu-icon {
+    display: block;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .hamburger {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .hamburger::before,
+  .hamburger::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .hamburger::before {
+    top: -8px;
+  }
+
+  .hamburger::after {
+    top: 8px;
+  }
+
+  .hamburger.open {
+    background-color: transparent;
+  }
+
+  .hamburger.open::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+
+  .hamburger.open::after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+
+  /* Animation for slide-in effect */
+  @keyframes slideIn {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
 }
