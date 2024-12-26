@@ -1,0 +1,59 @@
+/* Light Mode Styling */
+.experience-container {
+    padding: 40px;
+    background-color: #f8e4ba;
+    /* Light beige */
+    transition: background-color 0.3s ease;
+}
+
+.experience-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.vertical-timeline-element-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.vertical-timeline-element-subtitle {
+    font-size: 16px;
+    font-weight: 500;
+    color: #555;
+}
+
+.skills-tags {
+    margin-top: 10px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: #ddd;
+    color: #000;
+    font-size: 14px;
+    border-radius: 12px;
+}
+
+/* Dark Mode Styling */
+.dark .experience-container {
+    background-color: #333;
+    /* Dark background for dark mode */
+    color: #f8e4ba;
+    /* Light text for dark mode */
+}
+
+.dark .tag {
+    background-color: #444;
+    /* Slightly lighter gray for tags in dark mode */
+    color: #f8e4ba;
+    /* Light text for tags */
+}
+
+.dark .vertical-timeline-element-subtitle {
+    color: #ddd;
+    /* Light text for subtitles in dark mode */
+}

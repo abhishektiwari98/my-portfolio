@@ -3,8 +3,9 @@ import "./App.css";
 import Home from "./pages/Home";
 import Navbar from "./pages/Navbar";
 import About from "./pages/About";
-import Skills from "./pages/Skills"; // Import Skills component
+import Skills from "./pages/Skills";
 import Projects from "./pages/Projects"; // Import Projects component
+import Experience from "./pages/Experience"; // Import Experience component
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -28,7 +29,7 @@ const App = () => {
       {/* Resume Button */}
       <div className="controls">
         <a
-          href="/resume.pdf"
+          href="/resume_Abhishek.pdf" // File path points to the public folder
           download
           className="resume-button"
           target="_blank"
@@ -37,6 +38,7 @@ const App = () => {
           Resume
         </a>
       </div>
+
 
       {/* Sections */}
       <div id="home" className="section">
@@ -52,8 +54,7 @@ const App = () => {
         <Skills /> {/* Render the Skills component */}
       </div>
       <div id="experience" className="section">
-        <h1>Experience</h1>
-        <p>Learn about my professional experience here.</p>
+        <Experience /> {/* Render the Experience component */}
       </div>
       <div id="contact" className="section">
         <h1>Contact</h1>
