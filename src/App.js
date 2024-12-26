@@ -3,6 +3,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import Navbar from "./pages/Navbar";
 import About from "./pages/About";
+import Projects from "./pages/Projects"; // Import Projects component
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -44,8 +45,7 @@ const App = () => {
         <About />
       </div>
       <div id="projects" className="section">
-        <h1>Projects</h1>
-        <p>Check out my awesome projects here.</p>
+        <Projects /> {/* Render the Projects component */}
       </div>
       <div id="skills" className="section">
         <h1>Skills</h1>

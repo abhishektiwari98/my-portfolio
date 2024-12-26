@@ -30,7 +30,7 @@
     /* Spread the content */
     align-items: center;
     /* Center vertically */
-    gap: 30vh;
+    gap: 20vh;
     /* Space between sections */
     flex-wrap: wrap;
     /* Stack content on smaller screens */
@@ -45,14 +45,14 @@
     text-align: center;
     background-color: white;
     border-radius: 0px;
-    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 5px 5px rgba(0, 0, 0, 0.1);
     padding: 20px;
 }
 
 .dark .about-photo-card {
     background-color: #444;
     /* Dark mode background */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 4px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
 .about-photo {
