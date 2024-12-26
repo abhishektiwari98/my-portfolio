@@ -36,7 +36,7 @@ body {
 .navbar li {
   font-size: 16px;
   font-weight: 500;
-  text-transform: uppercase;
+  text-transform: none;
   cursor: pointer;
   transition: color 0.3s;
 }
@@ -63,15 +63,29 @@ body {
 }
 
 /* Sections */
+/* General section styling */
 .section {
-  height: 100vh;
+  min-height: auto;
+  /* Let sections grow naturally based on content */
+  padding: 40px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 20px;
 }
+
+/* Specific styling for Home page */
+#home.section {
+  height: 100vh;
+  /* Full-screen height for Home page */
+  padding: 0;
+  /* Reset padding for Home */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 /* Alternate Background Colors for Light Mode */
 .light .section:nth-child(odd) {

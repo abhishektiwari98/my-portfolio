@@ -3,6 +3,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import Navbar from "./pages/Navbar";
 import About from "./pages/About";
+import Skills from "./pages/Skills"; // Import Skills component
 import Projects from "./pages/Projects"; // Import Projects component
 
 const App = () => {
@@ -48,8 +49,7 @@ const App = () => {
         <Projects /> {/* Render the Projects component */}
       </div>
       <div id="skills" className="section">
-        <h1>Skills</h1>
-        <p>These are my technical skills and expertise.</p>
+        <Skills /> {/* Render the Skills component */}
       </div>
       <div id="experience" className="section">
         <h1>Experience</h1>
