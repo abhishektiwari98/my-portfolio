@@ -85,17 +85,16 @@
 
 /* Custom CSS for fixing date spacing */
 .vertical-timeline-element-date {
-    width: auto !important;
-    right: auto !important;
+    margin-top: 0;
+    margin-bottom: 10px;
+    margin-left: -60px;
 }
-
 
 .vertical-timeline--two-columns .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left) .vertical-timeline-element-content .vertical-timeline-element-date {
-    left: auto !important;
-    right: 128% !important;
+    left: auto;
+    right: 130% !important;
     text-align: right;
 }
-
 
 @media screen and (max-width: 768px) {
     .vertical-timeline-element-date {
