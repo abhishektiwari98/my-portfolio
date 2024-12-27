@@ -9,7 +9,7 @@ const experienceData = [
         title: "Graduate Research Assistant",
         company: "University of Texas at San Antonio",
         duration: "05.2022 - 08.2024",
-        skills: ["REST API", "RxJS", "JavaScript", "Bootstrap", "MDBootstrap", "EF Core", ".NET Core", "SignalR", "Angular Material"],
+        skills: ["Java", "Swift", "AWS", "Twilio Conversations", "Python", ".NET Core", "REST API"],
         icon: (
             <div
                 style={{
@@ -57,7 +57,7 @@ const experienceData = [
         title: "Software Development Intern",
         company: "Google",
         duration: "04.2016 - 08.2016",
-        skills: ["RxJS", "Django", "PHP", "JavaScript", "DHTMLX Gantt"],
+        skills: ["ETL", "Docker", "Kubernetes", "Go", "Google Cloud Platform (GCP)"],
         icon: <FaGoogle />, // Replaced hourglass with Angular icon
         iconBg: "#ffcc00",
         color: "#fff",

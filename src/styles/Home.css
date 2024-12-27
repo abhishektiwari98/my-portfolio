@@ -38,6 +38,11 @@
     align-items: center;
 }
 
+.dark .theme-switch-container .react-switch-bg {
+    background-color: rgb(37, 36, 36) !important;
+    /* Dark mode color */
+}
+
 .dark .home-icon {
     color: #f8e4ba;
 }
