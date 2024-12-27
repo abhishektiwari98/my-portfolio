@@ -40,7 +40,7 @@
 
 .dark .about-photo-card {
     background-color: #444;
-    box-shadow: 4px 5px 5px rgba(255, 204, 0, 0.6);
+    box-shadow: 2px 4px 6px rgba(255, 204, 0, 0.6);
     /* Golden shadow */
 }
 
