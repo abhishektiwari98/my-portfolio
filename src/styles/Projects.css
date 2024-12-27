@@ -117,18 +117,25 @@
 .dark .project-card {
     background-color: #333;
     color: #f8e4ba;
+    box-shadow: 0 6px 8px rgba(255, 204, 0, 0.4);
+    /* Golden shadow for dark mode */
+}
+
+.dark .project-card:hover {
+    box-shadow: 0 10px 20px rgba(255, 204, 0, 0.6);
+    /* More intense golden shadow on hover */
 }
 
 .dark .project-title {
     background: rgba(255, 255, 255, 0.8);
-    /* Increased opacity for better visibility in dark mode */
     color: #000;
-    /* Black text for contrast against lighter background */
 }
 
 .dark .project-modal-content {
     background: #333;
     color: #f8e4ba;
+    box-shadow: 0 8px 20px rgba(255, 204, 0, 0.4);
+    /* Golden shadow for modal in dark mode */
 }
 
 .dark .modal-github-link {

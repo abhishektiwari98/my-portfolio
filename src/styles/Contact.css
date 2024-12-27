@@ -5,6 +5,9 @@
     margin: 0 auto;
     text-align: center;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Default shadow for light mode */
+    transition: box-shadow 0.3s ease;
 }
 
 .contact-title {
@@ -26,7 +29,6 @@
     flex-direction: column;
     gap: 20px;
     align-items: center;
-    /* Ensures all elements, including the button, are centered */
 }
 
 .contact-form div {
@@ -34,7 +36,6 @@
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    /* Inputs and labels take full width */
 }
 
 .contact-form label {
@@ -62,7 +63,6 @@
 .contact-form input:focus,
 .contact-form textarea:focus {
     border-color: #007aff;
-    /* Apple's signature blue */
     box-shadow: 0 0 8px rgba(0, 122, 255, 0.3);
     outline: none;
 }
@@ -74,7 +74,6 @@
 
 .contact-form button {
     padding: 10px 20px;
-    /* Adjust padding to make the button compact */
     font-size: 16px;
     font-weight: 600;
     color: #fff;
@@ -84,9 +83,7 @@
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s;
     width: fit-content;
-    /* Shrinks the button to fit the text */
     align-self: center;
-    /* Ensures the button is centered */
 }
 
 .contact-form button:hover {
@@ -98,6 +95,8 @@
 .dark .contact-container {
     background-color: #333;
     color: #f8e4ba;
+    box-shadow: 0 8px 20px rgba(255, 204, 0, 0.4);
+    /* Golden shadow for dark mode */
 }
 
 .dark .contact-title {
@@ -169,6 +168,8 @@
 .dark .popup-content {
     background-color: #444;
     color: #f8e4ba;
+    box-shadow: 0 8px 20px rgba(255, 204, 0, 0.4);
+    /* Golden shadow for popup in dark mode */
 }
 
 .close-button {

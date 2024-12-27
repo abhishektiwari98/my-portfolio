@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/About.css";
 import profileImage from "../assets/profile.jpg";
+import profileVideo from "../assets/profile.mp4";
 import JavaLogo from "../assets/java-logo.png";
 import MongoLogo from "../assets/mongo-db.png";
 
@@ -11,7 +12,14 @@ const About = () => {
             <div className="about-content">
                 {/* Left Section: Photo Card */}
                 <div className="about-photo-card">
-                    <img src={profileImage} alt="Profile" className="about-photo" />
+                    <video
+                        src={profileVideo}
+                        className="about-photo"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                    />
                     <div className="tech-icons">
                         <img
                             src={JavaLogo}
