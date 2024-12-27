@@ -7,11 +7,11 @@ const skillsData = [
     { name: "Java", icon: "skill-icons:java-dark" },
     { name: "CSS 3", icon: "vscode-icons:file-type-css" },
     { name: "JavaScript", icon: "logos:javascript" },
-    { name: "TypeScript", icon: "logos:typescript-icon" },
-    { name: "Angular", icon: "logos:angular-icon" },
-    { name: "Sass", icon: "logos:sass" },
-    { name: "Bootstrap", icon: "logos:bootstrap" },
-    { name: "C#", icon: "logos:c-sharp" },
+    { name: "Python", icon: "devicon:python" },
+    { name: "GCP", icon: "devicon:googlecloud" },
+    { name: "React", icon: "devicon:react" },
+    { name: "Spring", icon: "devicon:spring" },
+    { name: "Docker", icon: "skill-icons:docker" },
     { name: "MySQL", icon: "logos:mysql" },
 ];
 
