@@ -39,13 +39,13 @@
 .project-title {
     position: absolute;
     bottom: 0;
-    width: 100%;
-    padding: 10px;
+    width: 97%;
+    padding: 5px;
     background: rgba(0, 0, 0, 0.8);
     /* Less transparency for better readability */
     color: #fff;
     /* White text for high contrast */
-    font-size: 20px;
+    font-size: 17px;
     font-weight: bold;
     text-align: center;
     border-radius: 0 0 10px 10px;
@@ -114,21 +114,42 @@
 }
 
 /* Dark Mode Styles */
+/* Dark Mode Styles */
 .dark .project-card {
     background-color: #333;
     color: #f8e4ba;
     box-shadow: 0 6px 8px rgba(255, 204, 0, 0.4);
     /* Golden shadow for dark mode */
+    position: relative;
+    overflow: hidden;
+    /* Ensure the overlay doesn't spill out */
 }
 
-.dark .project-card:hover {
-    box-shadow: 0 10px 20px rgba(255, 204, 0, 0.6);
-    /* More intense golden shadow on hover */
+.dark .project-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    /* Semi-transparent dark layer */
+    z-index: 1;
+    /* Place above the card background */
+    transition: background 0.3s ease-in-out;
+}
+
+.dark .project-card:hover::after {
+    background: rgba(0, 0, 0, 0.1);
+    /* Darker overlay on hover */
 }
 
 .dark .project-title {
-    background: rgba(255, 255, 255, 0.8);
-    color: #000;
+    position: absolute;
+    z-index: 2;
+    /* Place above the overlay */
+    background: rgba(33, 33, 33, 0.8);
+    color: #f8e4ba;
 }
 
 .dark .project-modal-content {
