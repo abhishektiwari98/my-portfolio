@@ -1,24 +1,21 @@
 import React from "react";
 import "../styles/About.css";
 import profileImage from "../assets/profile.jpg";
-import profileVideo from "../assets/profile.mp4";
+import profileImageDark from "../assets/profiledark.jpg";
 import JavaLogo from "../assets/java-logo.png";
 import MongoLogo from "../assets/mongo-db.png";
 
-const About = () => {
+const About = ({ isDarkMode }) => {
     return (
         <div className="about-container">
             <h1 className="about-title">About Me</h1>
             <div className="about-content">
                 {/* Left Section: Photo Card */}
                 <div className="about-photo-card">
-                    <video
-                        src={profileVideo}
+                    <img
+                        src={isDarkMode ? profileImageDark : profileImage} // Conditional rendering for profile image
                         className="about-photo"
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
+                        alt="Profile"
                     />
                     <div className="tech-icons">
                         <img

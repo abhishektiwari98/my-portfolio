@@ -46,7 +46,7 @@ const App = () => {
         <Home isDarkMode={isDarkMode} handleToggle={handleToggle} />
       </div>
       <div id="about" className="section">
-        <About />
+        <About isDarkMode={isDarkMode} /> {/* Pass isDarkMode to About */}
       </div>
       <div id="projects" className="section">
         <Projects /> {/* Render the Projects component */}
