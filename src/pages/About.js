@@ -2,8 +2,9 @@ import React from "react";
 import "../styles/About.css";
 import profileImage from "../assets/profile.jpg";
 import profileImageDark from "../assets/profiledark.jpg";
-import JavaLogo from "../assets/java-logo.png";
+//import JavaLogo from "../assets/java-logo.png";
 import MongoLogo from "../assets/mongo-db.png";
+import NodeLogo from "../assets/nodeJS-logo.png";
 
 const About = ({ isDarkMode }) => {
     return (
@@ -19,8 +20,8 @@ const About = ({ isDarkMode }) => {
                     />
                     <div className="tech-icons">
                         <img
-                            src={JavaLogo}
-                            alt="Java"
+                            src={NodeLogo}
+                            alt="NodeJS"
                             className="tech-icon"
                         />
                         <img
