@@ -6,6 +6,30 @@ import { FaGoogle, FaHourglassHalf } from "react-icons/fa";
 
 const experienceData = [
     {
+        title: "Frontend Developer",
+        company: "Wakura AI",
+        duration: "01.2025 - 08.2025",
+        skills: ["JavaScript", "React.JS", "AWS", "TypeScript", "HTML", "CSS", "REST API"],
+        icon: (
+            <div
+                style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    width: "100%",
+                    height: "100%",
+                    fontSize: "25px",
+                    fontWeight: "bold",
+                    color: "#fff",
+                }}
+            >
+                W
+            </div>
+        ),
+        iconBg: "#3d3affff",
+        color: "#000",
+    },
+    {
         title: "Graduate Research Assistant",
         company: "University of Texas at San Antonio",
         duration: "05.2022 - 08.2024",
