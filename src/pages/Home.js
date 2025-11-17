@@ -12,7 +12,7 @@ const Home = ({ isDarkMode, handleToggle }) => {
             <div className="home-title">
                 <Typewriter
                     options={{
-                        strings: ["Software Engineer", "Data Engineer", "Full-Stack Developer", "Java Developer"],
+                        strings: ["MERN Stack Developer", "Software Engineer", "Data Engineer", "Full-Stack Developer", "Java Developer"],
                         autoStart: true,
                         loop: true,
                         delay: 50,
