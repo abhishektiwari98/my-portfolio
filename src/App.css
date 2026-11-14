@@ -279,3 +279,85 @@ body {
     }
   }
 }
+
+/* A short celestial pass accompanies each theme change. */
+.theme-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  overflow: hidden;
+  pointer-events: none;
+  animation: sky-fade 2.4s ease-in-out both;
+}
+
+.theme-sky {
+  position: absolute;
+  inset: 0;
+}
+
+.to-night .theme-sky {
+  background:
+    radial-gradient(circle at 12% 22%, #fff9d9 0 1px, transparent 2px),
+    radial-gradient(circle at 27% 43%, #fff9d9 0 2px, transparent 3px),
+    radial-gradient(circle at 39% 12%, #fff9d9 0 1px, transparent 2px),
+    radial-gradient(circle at 56% 31%, #fff9d9 0 2px, transparent 3px),
+    radial-gradient(circle at 72% 17%, #fff9d9 0 1px, transparent 2px),
+    radial-gradient(circle at 88% 44%, #fff9d9 0 2px, transparent 3px),
+    linear-gradient(180deg, #111d5566, #29234a22 65%, transparent);
+}
+
+.to-day .theme-sky {
+  background: radial-gradient(ellipse at 50% 100%, #ffbc6088, #ffdf8633 45%, transparent 80%),
+    linear-gradient(0deg, #ffb58033, transparent 75%);
+}
+
+.theme-orb {
+  position: absolute;
+  width: clamp(64px, 9vw, 120px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  animation: celestial-pass 2.4s cubic-bezier(0.35, 0, 0.65, 1) both;
+}
+
+.to-night .theme-orb {
+  background: #eef0dc;
+  box-shadow: inset -22px -8px 0 2px #8d99b3, 0 0 45px 12px #dbe8ff66, 0 0 100px #a8beff44;
+}
+
+.to-night .theme-orb::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 30% 30%, #a7b0ac55 0 8%, transparent 9%),
+    radial-gradient(circle at 48% 65%, #a7b0ac44 0 12%, transparent 13%);
+}
+
+.to-day .theme-orb {
+  background: radial-gradient(circle at 40% 35%, #fff5ba, #ffd354 65%, #ffad32);
+  box-shadow: 0 0 40px 18px #ffd76788, 0 0 110px 45px #ffa94844;
+}
+
+.to-day .theme-orb::before {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  border-radius: 50%;
+  background: repeating-conic-gradient(#ffd76766 0deg 3deg, transparent 3deg 30deg);
+  mask-image: radial-gradient(circle, transparent 40%, #000 45%, transparent 70%);
+}
+
+@keyframes celestial-pass {
+  0% { left: -15%; top: 65%; transform: rotate(-25deg); }
+  50% { left: 45%; top: 12%; transform: rotate(0deg); }
+  100% { left: 110%; top: 55%; transform: rotate(25deg); }
+}
+
+@keyframes sky-fade {
+  0%, 100% { opacity: 0; }
+  18%, 70% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-transition { display: none; animation: none; }
+}

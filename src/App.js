@@ -12,9 +12,13 @@ import Footer from "./pages/Footer"; // Import Footer component
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [themeTransition, setThemeTransition] = useState(null);
 
   const handleToggle = (checked) => {
     setIsDarkMode(checked);
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setThemeTransition((previous) => ({ night: checked, id: (previous?.id || 0) + 1 }));
+    }
   };
 
   const scrollToSection = (id) => {
@@ -26,6 +30,19 @@ const App = () => {
 
   return (
     <div className={`app ${isDarkMode ? "dark" : "light"}`}>
+      {themeTransition && (
+        <div
+          key={themeTransition.id}
+          className={`theme-transition ${themeTransition.night ? "to-night" : "to-day"}`}
+          aria-hidden="true"
+          onAnimationEnd={(event) => {
+            if (event.target === event.currentTarget) setThemeTransition(null);
+          }}
+        >
+          <div className="theme-sky" />
+          <div className="theme-orb" />
+        </div>
+      )}
       {/* Navbar */}
       <Navbar scrollToSection={scrollToSection} />
 
