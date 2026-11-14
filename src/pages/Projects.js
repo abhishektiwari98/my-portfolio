@@ -114,16 +114,17 @@ const Projects = () => {
             {/* Modal for Project Details */}
             {selectedProject && (
                 <div className="project-modal">
-                    <div className="project-modal-content">
-                        <span className="modal-close" onClick={closeProject}>
+                    <div className="project-modal-content" data-card={selectedProject.id} role="dialog" aria-modal="true" aria-labelledby="project-detail-title">
+                        <button type="button" className="modal-close" onClick={closeProject} aria-label="Close project details">
                             &times;
-                        </span>
+                        </button>
+                        <div className="project-detail-body">
                         <img
                             src={selectedProject.image}
                             alt={selectedProject.title}
                             className="modal-image"
                         />
-                        <h2 className="modal-title">{selectedProject.title}</h2>
+                        <h2 id="project-detail-title" className="modal-title">{selectedProject.title}</h2>
                         <p className="modal-description">{selectedProject.description}</p>
                         <a
                             href={selectedProject.github}
@@ -133,6 +134,7 @@ const Projects = () => {
                         >
                             <FaGithub /> View on GitHub
                         </a>
+                        </div>
                     </div>
                 </div>
             )}
