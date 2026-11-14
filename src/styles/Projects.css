@@ -12,6 +12,7 @@
 
 /* Grid Layout for Project Cards */
 .projects-grid {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -19,11 +20,16 @@
 }
 
 .project-card {
-    width: 300px;
-    height: 200px;
+    --card-color: #da2c33;
+    width: 210px;
+    max-width: 100%;
+    height: 310px;
+    padding: 0;
+    border: 7px solid #faf5e9;
+    font: inherit;
     background-size: cover;
     background-position: center;
-    border-radius: 10px;
+    border-radius: 18px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     cursor: pointer;
@@ -31,27 +37,82 @@
     position: relative;
 }
 
-.project-card:hover {
+.project-card:nth-child(2) { --card-color: #2075c8; }
+.project-card:nth-child(3) { --card-color: #298549; }
+.project-card:nth-child(4) { --card-color: #deaa1b; }
+.project-card:nth-child(5) { --card-color: #252525; }
+
+.project-card:hover,
+.project-card:focus-visible {
     transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
+.project-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--card-color);
+    transition: opacity 0.3s ease;
+}
+
+.project-card::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    inset: 24px 12px;
+    border-radius: 50%;
+    background: #faf5e9;
+    transform: rotate(28deg);
+    transition: opacity 0.3s ease;
+}
+
+.project-corner {
+    position: absolute;
+    z-index: 2;
+    color: #faf5e9;
+    font-size: 34px;
+    font-weight: 900;
+    line-height: 1;
+    transition: opacity 0.3s ease;
+}
+
+.project-corner-top { top: 7px; left: 9px; }
+.project-corner-bottom { bottom: 7px; right: 9px; transform: rotate(180deg); }
+
+.project-card:hover::before,
+.project-card:focus-visible::before,
+.project-card:hover::after,
+.project-card:focus-visible::after,
+.project-card:hover .project-corner,
+.project-card:focus-visible .project-corner {
+    opacity: 0;
+}
+
 .project-title {
     position: absolute;
-    bottom: 0;
-    width: 97%;
-    padding: 5px;
-    background: rgba(0, 0, 0, 0.8);
-    /* Less transparency for better readability */
-    color: #fff;
-    /* White text for high contrast */
-    font-size: 17px;
-    font-weight: bold;
+    z-index: 2;
+    bottom: 50%;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 16px;
+    color: var(--card-color);
+    font-size: 20px;
+    font-weight: 900;
+    font-style: italic;
     text-align: center;
-    border-radius: 0 0 10px 10px;
-    /* Rounded corners at the bottom */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-    /* Optional: Adds subtle text shadow */
+    transform: translateY(50%) rotate(-12deg);
+    transition: bottom 0.3s ease, transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.project-card:hover .project-title,
+.project-card:focus-visible .project-title {
+    bottom: 0;
+    transform: translateY(0);
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
 }
 
 /* Modal for Project Details */
@@ -125,33 +186,6 @@
     /* Ensure the overlay doesn't spill out */
 }
 
-.dark .project-card::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    /* Semi-transparent dark layer */
-    z-index: 1;
-    /* Place above the card background */
-    transition: background 0.3s ease-in-out;
-}
-
-.dark .project-card:hover::after {
-    background: rgba(0, 0, 0, 0.1);
-    /* Darker overlay on hover */
-}
-
-.dark .project-title {
-    position: absolute;
-    z-index: 2;
-    /* Place above the overlay */
-    background: rgba(33, 33, 33, 0.8);
-    color: #f8e4ba;
-}
-
 .dark .project-modal-content {
     background: #333;
     color: #f8e4ba;
@@ -161,4 +195,53 @@
 
 .dark .modal-github-link {
     color: #ffcc00;
+}
+@media (prefers-reduced-motion: reduce) {
+    .project-card, .project-card::before, .project-card::after, .project-corner, .project-title {
+        transition: none;
+    }
+}
+
+/* Keep the layout space reserved while the deck deals into its grid. */
+.projects-grid .project-card {
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+}
+
+.deck-stacked .project-card {
+    transform: translate(var(--stack-x, 0px), var(--stack-y, 0px)) rotate(var(--stack-angle, 0deg));
+}
+
+.deck-open .project-card {
+    animation: deal-card 0.75s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+    animation-delay: var(--deal-delay);
+}
+
+@keyframes deal-card {
+    from { transform: translate(var(--stack-x), var(--stack-y)) rotate(var(--stack-angle)); }
+    to { transform: translate(0, 0) rotate(0deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .projects-grid .project-card { animation: none; transition: none; transform: none; }
+}
+
+/* Softer card faces under the night theme. */
+.dark .project-card {
+    --card-color: #91474b;
+    border-color: #c4bdb0;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dark .project-card:nth-child(2) { --card-color: #41688c; }
+.dark .project-card:nth-child(3) { --card-color: #487258; }
+.dark .project-card:nth-child(4) { --card-color: #917b3e; }
+.dark .project-card:nth-child(5) { --card-color: #303238; }
+
+.dark .project-card::before { background: #c4bdb0; }
+.dark .project-corner { color: #c4bdb0; }
+
+.deck-stacked .project-card:hover::before,
+.deck-stacked .project-card:hover::after,
+.deck-stacked .project-card:hover .project-corner {
+    opacity: 1;
 }

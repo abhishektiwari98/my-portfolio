@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../styles/Projects.css";
 import { FaGithub } from "react-icons/fa";
 
@@ -49,6 +49,26 @@ const projectData = [
 
 const Projects = () => {
     const [selectedProject, setSelectedProject] = useState(null);
+    const [isDeckOpen, setIsDeckOpen] = useState(false);
+    const gridRef = useRef(null);
+
+    useEffect(() => {
+        const grid = gridRef.current;
+        const stackCards = () => {
+            const cards = [...grid.querySelectorAll(".project-card")];
+            cards.forEach((card, index) => {
+                card.style.setProperty("--stack-x", `${grid.clientWidth / 2 - card.offsetLeft - card.offsetWidth / 2}px`);
+                card.style.setProperty("--stack-y", `${grid.clientHeight / 2 - card.offsetTop - card.offsetHeight / 2}px`);
+                card.style.setProperty("--stack-angle", `${(index - (cards.length - 1) / 2) * 4}deg`);
+                card.style.setProperty("--deal-delay", `${index * 60}ms`);
+            });
+        };
+        stackCards();
+        window.addEventListener("resize", stackCards);
+        return () => {
+            window.removeEventListener("resize", stackCards);
+        };
+    }, []);
 
     const openProject = (project) => {
         setSelectedProject(project);
@@ -61,18 +81,33 @@ const Projects = () => {
     return (
         <div className="projects-container">
             <h1 className="projects-title">My Projects</h1>
-            <div className="projects-grid">
+            <div
+                ref={gridRef}
+                className={`projects-grid ${isDeckOpen ? "deck-open" : "deck-stacked"}`}
+                onMouseOver={(event) => {
+                    if (event.target.closest(".project-card")) setIsDeckOpen(true);
+                }}
+                onMouseLeave={() => setIsDeckOpen(false)}
+                onFocusCapture={() => setIsDeckOpen(true)}
+                onBlurCapture={(event) => {
+                    if (!event.currentTarget.contains(event.relatedTarget)) setIsDeckOpen(false);
+                }}
+                onTouchStart={() => setIsDeckOpen(true)}
+            >
                 {projectData.map((project) => (
-                    <div
+                    <button
+                        type="button"
                         key={project.id}
                         className="project-card"
                         style={{ backgroundImage: `url(${project.image})` }}
                         onClick={() => openProject(project)}
                     >
                         <div className="project-overlay">
+                            <span className="project-corner project-corner-top" aria-hidden="true">↻</span>
+                            <span className="project-corner project-corner-bottom" aria-hidden="true">↻</span>
                             <h2 className="project-title">{project.title}</h2>
                         </div>
-                    </div>
+                    </button>
                 ))}
             </div>
 
