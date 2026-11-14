@@ -96,23 +96,31 @@ body {
 }
 
 /* Alternate Background Colors for Light Mode */
-.light .section:nth-child(odd) {
+.light #home,
+.light #projects,
+.light #experience {
   background-color: #f8e4ba;
   color: #333;
 }
 
-.light .section:nth-child(even) {
+.light #about,
+.light #skills,
+.light #contact {
   background-color: #fffff7;
   color: #333;
 }
 
 /* Dark Mode */
-.dark .section:nth-child(odd) {
+.dark #home,
+.dark #projects,
+.dark #experience {
   background-color: #333;
   color: #f8e4ba;
 }
 
-.dark .section:nth-child(even) {
+.dark #about,
+.dark #skills,
+.dark #contact {
   background-color: #444;
   color: #f8e4ba;
 }
@@ -334,6 +342,7 @@ body {
 }
 
 .to-day .theme-orb {
+  filter: drop-shadow(0 3px 3px rgba(117, 67, 21, 0.55));
   background: radial-gradient(circle at 40% 35%, #fff5ba, #ffd354 65%, #ffad32);
   box-shadow: 0 0 40px 18px #ffd76788, 0 0 110px 45px #ffa94844;
 }
@@ -360,4 +369,30 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .theme-transition { display: none; animation: none; }
+}
+
+/* A broad, moving pool of sunlight follows the sun across the page. */
+.to-day .theme-sky::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(ellipse at center,
+    rgba(255, 249, 211, 0.48) 0%,
+    rgba(255, 221, 133, 0.24) 25%,
+    rgba(255, 196, 95, 0.08) 48%,
+    transparent 68%);
+  mix-blend-mode: screen;
+  animation: sunshine-sweep 2.4s ease-in-out both;
+}
+
+@keyframes sunshine-sweep {
+  0% { transform: translate(-45%, 25%); opacity: 0; }
+  25% { opacity: 0.75; }
+  50% { transform: translate(0, -10%); opacity: 1; }
+  75% { opacity: 0.75; }
+  100% { transform: translate(45%, 20%); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .to-day .theme-sky::after { animation: none; }
 }
