@@ -1,13 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+
+const sections = ["home", "about", "projects", "skills", "experience", "contact"];
 
 const Navbar = ({ scrollToSection }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState("home");
+
+    useEffect(() => {
+        const updateActiveSection = () => {
+            const current = sections.filter((id) => {
+                const section = document.getElementById(id);
+                return section && section.getBoundingClientRect().top <= window.innerHeight * 0.3;
+            }).pop();
+            setActiveSection(current || "home");
+        };
+        updateActiveSection();
+        window.addEventListener("scroll", updateActiveSection, { passive: true });
+        window.addEventListener("resize", updateActiveSection);
+        return () => {
+            window.removeEventListener("scroll", updateActiveSection);
+            window.removeEventListener("resize", updateActiveSection);
+        };
+    }, []);
 
     const toggleMenu = () => {
         setIsMenuOpen((prev) => !prev);
     };
 
     const handleMenuClick = (section) => {
+        setActiveSection(section);
         scrollToSection(section);
         setIsMenuOpen(false); // Close menu after clicking
     };
@@ -21,12 +42,17 @@ const Navbar = ({ scrollToSection }) => {
 
             {/* Navbar Links */}
             <ul className={`nav-links ${isMenuOpen ? "show" : ""}`}>
-                <li onClick={() => handleMenuClick("home")}>Home</li>
-                <li onClick={() => handleMenuClick("about")}>About</li>
-                <li onClick={() => handleMenuClick("projects")}>Projects</li>
-                <li onClick={() => handleMenuClick("skills")}>Skills</li>
-                <li onClick={() => handleMenuClick("experience")}>Experience</li>
-                <li onClick={() => handleMenuClick("contact")}>Contact</li>
+                {sections.map((section) => (
+                    <li key={section} className={activeSection === section ? "active" : ""}>
+                        <button
+                            type="button"
+                            aria-current={activeSection === section ? "location" : undefined}
+                            onClick={() => handleMenuClick(section)}
+                        >
+                            {section.charAt(0).toUpperCase() + section.slice(1)}
+                        </button>
+                    </li>
+                ))}
             </ul>
         </nav>
     );

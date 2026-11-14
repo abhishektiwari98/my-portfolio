@@ -2,13 +2,41 @@ import React from "react";
 import "../styles/Experience.css";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import { FaGoogle, FaHourglassHalf } from "react-icons/fa";
+import { FaGoogle, FaHourglassHalf, FaMapMarkerAlt, FaBuilding } from "react-icons/fa";
 
 const experienceData = [
     {
+        title: "Senior Software Engineer",
+        company: "UNext Learning",
+        linkedin: "https://www.linkedin.com/company/unext-learning/posts/?feedView=all",
+        duration: "12.2025 - Present",
+        location: "Bangalore, India",
+        skills: ["JavaScript", "React.JS", "Angular", "Node.js", "AWS", "TypeScript", "HTML", "CSS"],
+        icon: (
+            <div
+                style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    width: "100%",
+                    height: "100%",
+                    fontSize: "25px",
+                    fontWeight: "bold",
+                    color: "#fff",
+                }}
+            >
+                U
+            </div>
+        ),
+        iconBg: "#166a73",
+        color: "#fff",
+    },
+    {
         title: "Frontend Developer",
         company: "Wakura AI",
+        linkedin: "https://www.linkedin.com/company/wakura-ai/",
         duration: "01.2025 - 08.2025",
+        location: "Sunnyvale, California, USA",
         skills: ["JavaScript", "React.JS", "AWS", "TypeScript", "HTML", "CSS", "REST API"],
         icon: (
             <div
@@ -32,7 +60,9 @@ const experienceData = [
     {
         title: "Graduate Research Assistant",
         company: "University of Texas at San Antonio",
+        linkedin: "https://www.linkedin.com/school/the-university-of-texas-at-san-antonio/posts/?feedView=all",
         duration: "05.2022 - 08.2024",
+        location: "San Antonio, Texas, USA",
         skills: ["Java", "Swift", "AWS", "Twilio Conversations", "Python", ".NET Core", "REST API"],
         icon: (
             <div
@@ -56,7 +86,9 @@ const experienceData = [
     {
         title: "Senior Software Engineer",
         company: "Ntier Infotech",
+        linkedin: "https://www.linkedin.com/company/ntier-infotech/",
         duration: "09.2019 - 10.2021",
+        location: "Indore, India",
         skills: ["REST API", "SQL", "JavaScript", "Amazon S3", "Kubernets", "Java", "SQS", "Docker", "Python"],
         icon: (
             <div
@@ -80,7 +112,10 @@ const experienceData = [
     {
         title: "Software Development Intern",
         company: "Google",
+        linkedin: "https://www.linkedin.com/company/google/",
         duration: "04.2016 - 08.2016",
+        location: "Remote, India",
+        mapQuery: "India",
         skills: ["ETL", "Docker", "Kubernetes", "Go", "Google Cloud Platform (GCP)"],
         icon: <FaGoogle />, // Replaced hourglass with Angular icon
         iconBg: "#ffcc00",
@@ -96,12 +131,32 @@ const Experience = () => {
                 {experienceData.map((item, index) => (
                     <VerticalTimelineElement
                         key={index}
-                        date={item.duration}
+                        date={
+                            <>
+                                <span>{item.duration}</span>
+                                {item.location && (
+                                    <a
+                                        className="experience-location"
+                                        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.mapQuery || item.location)}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <FaMapMarkerAlt aria-hidden="true" /> {item.location}
+                                    </a>
+                                )}
+                            </>
+                        }
                         iconStyle={{ background: item.iconBg, color: item.color }}
                         icon={item.icon}
                     >
                         <h3 className="vertical-timeline-element-title">{item.title}</h3>
-                        <h4 className="vertical-timeline-element-subtitle">{item.company}</h4>
+                        <h4 className="vertical-timeline-element-subtitle">
+                            {item.linkedin ? (
+                                <a className="experience-company-link" href={item.linkedin} target="_blank" rel="noopener noreferrer">
+                                    <FaBuilding aria-hidden="true" /> {item.company}
+                                </a>
+                            ) : item.company}
+                        </h4>
                         <div className="skills-tags">
                             {item.skills.map((skill, idx) => (
                                 <span key={idx} className="tag">

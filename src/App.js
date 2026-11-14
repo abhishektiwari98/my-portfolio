@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Switch from "react-switch";
 import "./App.css";
 import Home from "./pages/Home";
 import Navbar from "./pages/Navbar";
@@ -28,8 +29,45 @@ const App = () => {
       {/* Navbar */}
       <Navbar scrollToSection={scrollToSection} />
 
-      {/* Resume Button */}
+      {/* Theme and Resume Controls */}
       <div className="controls">
+            {/* Theme Switch */}
+            <div className="theme-switch-container">
+                <Switch
+                    aria-label="Toggle dark mode"
+                    checked={isDarkMode}
+                    onChange={handleToggle}
+                    checkedIcon={
+                        <span
+                            style={{
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                height: "100%",
+                                fontSize: "16px",
+                            }}
+                        >
+                            🌜
+                        </span>
+                    }
+                    uncheckedIcon={
+                        <span
+                            style={{
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                height: "100%",
+                                fontSize: "16px",
+                            }}
+                        >
+                            🌞
+                        </span>
+                    }
+                    onColor="#333"
+                    offColor="#ddd"
+                />
+
+            </div>
         <a
           href="/resume_Abhishek.pdf" // File path points to the public folder
           download
@@ -43,7 +81,7 @@ const App = () => {
 
       {/* Sections */}
       <div id="home" className="section">
-        <Home isDarkMode={isDarkMode} handleToggle={handleToggle} />
+        <Home />
       </div>
       <div id="about" className="section">
         <About isDarkMode={isDarkMode} /> {/* Pass isDarkMode to About */}

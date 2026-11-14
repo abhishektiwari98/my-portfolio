@@ -1,10 +1,9 @@
 import React from "react";
 import { FaLaptopCode, FaGithub, FaLinkedin } from "react-icons/fa"; // Import GitHub and LinkedIn icons
 import Typewriter from "typewriter-effect";
-import Switch from "react-switch"; // Import Switch for theme toggle
 import "../styles/Home.css";
 
-const Home = ({ isDarkMode, handleToggle }) => {
+const Home = () => {
     return (
         <div className="section home-container">
             <FaLaptopCode className="home-icon" />
@@ -19,42 +18,6 @@ const Home = ({ isDarkMode, handleToggle }) => {
                         deleteSpeed: 30,
                     }}
                 />
-            </div>
-            {/* Theme Switch */}
-            <div className="theme-switch-container">
-                <Switch
-                    checked={isDarkMode}
-                    onChange={handleToggle}
-                    checkedIcon={
-                        <span
-                            style={{
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                height: "100%",
-                                fontSize: "16px",
-                            }}
-                        >
-                            🌜
-                        </span>
-                    }
-                    uncheckedIcon={
-                        <span
-                            style={{
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                height: "100%",
-                                fontSize: "16px",
-                            }}
-                        >
-                            🌞
-                        </span>
-                    }
-                    onColor="#333"
-                    offColor="#ddd"
-                />
-
             </div>
             {/* Social Icons */}
             <div className="social-icons">

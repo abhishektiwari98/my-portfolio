@@ -41,8 +41,19 @@ body {
   transition: color 0.3s;
 }
 
-.navbar li:hover {
+.navbar li:hover,
+.navbar li.active {
   color: #929292;
+}
+
+.navbar li button {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
 }
 
 /* Dark Mode */
@@ -59,7 +70,8 @@ body {
   color: #f8e4ba;
 }
 
-.dark .navbar li:hover {
+.dark .navbar li:hover,
+.dark .navbar li.active {
   color: #ffcc00;
 }
 
@@ -107,6 +119,8 @@ body {
 
 /* Theme Switch Container */
 .theme-switch-container {
+  display: flex;
+  align-items: center;
   padding: 3px;
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.8);
@@ -115,6 +129,10 @@ body {
 
 .dark .theme-switch-container {
   background-color: rgba(0, 0, 0, 0.7);
+}
+
+.dark .theme-switch-container .react-switch-bg {
+  background-color: rgb(37, 36, 36) !important;
 }
 
 /* Button controls (Resume + Theme) */
@@ -191,6 +209,11 @@ body {
 
   .dark .navbar li {
     color: #000000;
+  }
+
+  .dark .navbar li:hover,
+  .dark .navbar li.active {
+    color: #929292;
   }
 
   .dark .navbar {

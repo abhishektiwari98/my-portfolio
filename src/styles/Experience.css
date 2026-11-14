@@ -83,21 +83,66 @@
 }
 
 
-/* Custom CSS for fixing date spacing */
-.vertical-timeline-element-date {
-    margin-top: 0;
-    margin-bottom: 10px;
-    margin-left: -60px;
+/* Keep dates and locations aligned together beside the timeline. */
+.experience-container .vertical-timeline-element-date {
+    margin: 0 0 10px;
+    text-align: left;
 }
 
-.vertical-timeline--two-columns .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left) .vertical-timeline-element-content .vertical-timeline-element-date {
-    left: auto;
-    right: 130% !important;
-    text-align: right;
-}
-
-@media screen and (max-width: 768px) {
-    .vertical-timeline-element-date {
-        margin-left: 0;
+@media screen and (min-width: 1170px) {
+    .experience-container .vertical-timeline--two-columns .vertical-timeline-element-date {
+        padding-left: 24px;
     }
+
+    .experience-container .vertical-timeline--two-columns .vertical-timeline-element:nth-child(even) .vertical-timeline-element-date {
+        padding-left: 0;
+        padding-right: 24px;
+        text-align: right;
+    }
+}
+
+.experience-location {
+    color: #166a73;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 6px;
+    font-size: 0.85em;
+}
+
+.experience-location svg {
+    flex-shrink: 0;
+}
+
+@media screen and (min-width: 1170px) {
+    .vertical-timeline--two-columns .vertical-timeline-element:nth-child(even) .experience-location {
+        justify-content: flex-end;
+    }
+}
+
+.experience-location:hover,
+.experience-location:focus-visible {
+    text-decoration: underline;
+}
+
+.experience-company-link {
+    color: #166a73;
+    text-decoration: none;
+}
+
+.experience-company-link:hover,
+.experience-company-link:focus-visible {
+    text-decoration: underline;
+}
+
+.dark .experience-location,
+.dark .experience-company-link {
+    color: #ffcc00;
+}
+
+.experience-company-link svg {
+    margin-right: 4px;
+    font-size: 0.85em;
+    vertical-align: -0.1em;
 }

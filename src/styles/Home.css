@@ -30,19 +30,6 @@
     margin-top: 10px;
 }
 
-/* Theme Switch Styling */
-.theme-switch-container {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.dark .theme-switch-container .react-switch-bg {
-    background-color: rgb(37, 36, 36) !important;
-    /* Dark mode color */
-}
-
 .dark .home-icon {
     color: #f8e4ba;
 }
@@ -59,7 +46,6 @@
 
 .social-icons {
     margin-top: 20px;
-    /* Space below the theme switch */
     display: flex;
     justify-content: center;
     gap: 20px;
