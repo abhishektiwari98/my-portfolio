@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../styles/Skills.css";
 import { Icon } from "@iconify/react";
 
@@ -16,13 +16,33 @@ const skillsData = [
 ];
 
 const Skills = () => {
+    const gridRef = useRef(null);
+    const [hasEntered, setHasEntered] = useState(false);
+
+    useEffect(() => {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            setHasEntered(true);
+            return;
+        }
+        const observer = new IntersectionObserver(([entry]) => {
+            // Reset only when Skills is below the viewport, ready for a downward visit.
+            if (entry.boundingClientRect.top > 0) {
+                setHasEntered(entry.isIntersecting);
+            }
+        }, { rootMargin: "0px 0px -15% 0px", threshold: 0.1 });
+        observer.observe(gridRef.current);
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <>
             <h1 className="skills-title">Skills</h1>
-            <div className="skills-grid">
+            <div ref={gridRef} className={`skills-grid ${hasEntered ? "skills-entered" : "skills-pending"}`}>
                 {skillsData.map((skill, index) => (
                     <div key={index} className="skill-card">
-                        <Icon icon={skill.icon} className="skill-icon" />
+                        <span className="skill-drop" style={{ "--drop-delay": `${index * 80}ms` }}>
+                            <Icon icon={skill.icon} className="skill-icon" />
+                        </span>
                         <p className="skill-name">{skill.name}</p>
                     </div>
                 ))}
